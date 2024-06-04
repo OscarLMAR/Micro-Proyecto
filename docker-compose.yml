@@ -6,8 +6,27 @@ services:
     build:
       context: .
     ports:
-      - "4001:4001"
+      - "4001"
     networks:
       - micro-proyecto-app
+
+  micro-proyecto-2:
+    container_name: micro-proyecto-2
+    image : micro-proyecto:v1
+    ports:
+      - "4001"
+    networks:
+      - micro-proyecto-app
+
+  balanceador: 
+    container_name: balanceador
+    image : balanceador:v1
+    build:
+      context: ./balanceador
+    ports:
+      - "4003:80"
+    networks:
+      - micro-proyecto-app
+
 networks: 
   micro-proyecto-app:

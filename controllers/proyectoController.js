@@ -79,7 +79,9 @@ const createProyecto = async (req = request, res = response) =>{
 //FUNCION OBTENER PROYECTOS//
 
 const getProyectos = async (req = request, res = request) =>{
+    console.log("get proyectos..")
     try {
+
         const proyectos = await Proyecto.find()
         .populate({
             path: 'tipoProyecto'
