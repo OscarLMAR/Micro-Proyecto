@@ -10,6 +10,10 @@ services:
     networks:
       - micro-proyecto-app
 
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - PORT=4001
+
   micro-proyecto-2:
     container_name: micro-proyecto-2
     image : micro-proyecto:v1
@@ -17,6 +21,10 @@ services:
       - "4001"
     networks:
       - micro-proyecto-app
+
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - PORT=4001
 
   balanceador: 
     container_name: balanceador
