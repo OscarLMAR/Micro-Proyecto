@@ -30,3 +30,14 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            emailext (
+                subject: "Status del build: ${currentBuild.currentResult}",
+                body: "Se ha completado el build. Puede detallar en: ${env.BUILD_URL}",
+                to: "oscar.marquezla@est.iudigital.edu.co",
+                from: "oscar990609@gmail.com"
+            )
+        }
+    }
+}
