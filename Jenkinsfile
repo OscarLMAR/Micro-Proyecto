@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Clonar el Repositorio'){
+        stage('Clonar el RGitHub'){
             steps {
                 git branch: 'microproyecto', url: 'https://github.com/OscarLMAR/Micro-Proyecto.git'
             }
