@@ -33,7 +33,7 @@ pipeline {
     post {
         always {
             emailext (
-                subject: "build: ${currentBuild.currentResult}",
+                subject: "status build: ${currentBuild.currentResult}",
                 body: "Se ha completado el build. Puede detallar en: ${env.BUILD_URL}",
             )
         }
